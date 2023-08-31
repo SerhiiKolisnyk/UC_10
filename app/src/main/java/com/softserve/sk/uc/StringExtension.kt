@@ -8,7 +8,7 @@ fun String.isValid(maxLength: UInt): Boolean {
     val digit = "(?=.*[0-9])"
     val allowedLength = ".{0,${maxLength}}"
     val specialCharacter = "(?=.*[${Regex.escape(PREFERRED_LIST)}])"
-    val forbidWhitespaces = "[^\\s]"
+    val forbidWhitespaces = "(?=[^\\s]*\$)"
 
     val pattern = """
        ^$lowerCase$uppercase$digit$specialCharacter$forbidWhitespaces$allowedLength$
